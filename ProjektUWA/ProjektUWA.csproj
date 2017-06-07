@@ -93,7 +93,6 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModels\BusinessViewModel.cs" />
     <Compile Include="Views\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
@@ -111,7 +110,7 @@
       <DependentUpon>OrgList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\ListOfBusinessesViewModel.cs" />
+    <Compile Include="ViewModels\BusinessViewModel.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

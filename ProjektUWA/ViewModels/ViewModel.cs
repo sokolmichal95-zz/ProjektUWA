@@ -4,6 +4,11 @@ namespace ProjektUWA.ViewModels
 {
     public abstract class ViewModel : INotifyPropertyChanged
     {
+        public ViewModel()
+        {
+
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
         {

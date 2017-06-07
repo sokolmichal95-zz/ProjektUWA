@@ -4,7 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="using:ProjektUWA.ViewModels"
     mc:Ignorable="d">
+
+    <Page.DataContext>
+        <local:BusinessViewModel/>
+    </Page.DataContext>
 
     <Grid Background="RoyalBlue">
         <StackPanel Orientation="Vertical"
@@ -14,7 +19,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="{Binding viewModel, Mode=OneWay}"/>
+                            <TextBlock Text="{Binding Data}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
