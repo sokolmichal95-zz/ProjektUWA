@@ -26,5 +26,20 @@ namespace ProjektUWA
         {
             this.InitializeComponent();
         }
+
+        private void About_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(About), null);
+        }
+
+        private void OrgFind_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(OrgFind), null);
+        }
+
+        private void OrgList_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(OrgList), null);
+        }
     }
 }
