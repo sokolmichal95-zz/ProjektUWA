@@ -14,7 +14,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="{Binding viewModel.GetBusinesses().data}"></TextBlock>
+                            <TextBlock Text="{Binding viewModel, Mode=OneWay}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

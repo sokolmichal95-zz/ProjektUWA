@@ -8,6 +8,52 @@
     mc:Ignorable="d">
 
     <Grid Background="RoyalBlue">
-
+        <Grid Margin="50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+            <Viewbox Stretch="Fill">
+                <TextBlock Grid.Column="0" 
+                       Text="Wpisz nazwę szukanej firmy:"
+                       FontSize="24"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center"/>
+            </Viewbox>
+            
+            <TextBox Grid.Column="1" x:Name="BusinessName" 
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Center"/>
+            
+            <Button Grid.Column="2" 
+                    Click="Button_Click"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Stretch">
+                <Viewbox Stretch="Fill">
+                    <TextBlock FontSize="18">Szukaj</TextBlock>
+                </Viewbox>
+            </Button>
+            <StackPanel Grid.Column="1" 
+                        Grid.Row="1"
+                        Orientation="Vertical"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <ListView x:Name="BusinessesList">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

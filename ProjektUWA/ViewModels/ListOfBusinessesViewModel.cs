@@ -68,7 +68,6 @@ namespace ProjektUWA.ViewModels
             HttpClient client = new HttpClient();
 
             string response = await client.GetStringAsync(url);
-
             Data = JsonConvert.DeserializeObject<Rootobject>(response);
         }
 

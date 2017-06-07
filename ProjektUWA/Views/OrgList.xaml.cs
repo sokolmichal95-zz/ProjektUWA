@@ -43,8 +43,6 @@ namespace ProjektUWA
                 AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
 
             var viewModel = new ListOfBusinessesViewModel();
-            
-            ListOfBusinesses = viewModel.GetBusinesses();
         }
 
         #region Navigation
