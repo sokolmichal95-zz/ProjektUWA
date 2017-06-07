@@ -1,11 +1,14 @@
 ﻿using Newtonsoft.Json;
 using ProjektUWA.Models;
+using ProjektUWA.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Core;
@@ -26,6 +29,8 @@ namespace ProjektUWA
     /// </summary>
     public sealed partial class OrgList : Page
     {
+        public List<Dataobject> ListOfBusinesses;
+
         public OrgList()
         {
             this.InitializeComponent();
@@ -36,7 +41,10 @@ namespace ProjektUWA
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
                 rootFrame.CanGoBack ?
                 AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
-            GetData("https://api-v3.mojepanstwo.pl/dane/krs_podmioty.json");
+
+            var viewModel = new ListOfBusinessesViewModel();
+            
+            ListOfBusinesses = viewModel.GetBusinesses();
         }
 
         #region Navigation
@@ -54,10 +62,6 @@ namespace ProjektUWA
                 rootFrame.GoBack();
             }
         }
-        #endregion
-
-        #region RESTApiConsumer
-        
         #endregion
     }
 }

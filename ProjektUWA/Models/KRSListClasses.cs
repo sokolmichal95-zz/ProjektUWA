@@ -5,7 +5,7 @@ namespace ProjektUWA.Models
 {
     public class Rootobject
     {
-        public Dataobject[] Dataobject { get; set; }
+        public List<Dataobject> Dataobject { get; set; }
         public int Count { get; set; }
         public int Took { get; set; }
         public Links Links { get; set; }
