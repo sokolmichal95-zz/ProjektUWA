@@ -1,7 +1,9 @@
 ﻿{
   "dependencies": {
     "GoedWare.Controls.About": "1.0.6",
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+    "MvvmLightLibs": "5.3.0",
+    "Newtonsoft.Json": "10.0.2"
   },
   "frameworks": {
     "uap10.0": {}

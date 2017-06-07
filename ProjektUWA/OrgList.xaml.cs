@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using ProjektUWA.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -30,9 +33,13 @@ namespace ProjektUWA
             var rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigated += OnNavigated;
             SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
-            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = rootFrame.CanGoBack ? AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                rootFrame.CanGoBack ?
+                AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
+            GetData("https://api-v3.mojepanstwo.pl/dane/krs_podmioty.json");
         }
 
+        #region Navigation
         private void OnNavigated(object sender, NavigationEventArgs e)
         {
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = ((Frame)sender).CanGoBack ? AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
@@ -47,5 +54,10 @@ namespace ProjektUWA
                 rootFrame.GoBack();
             }
         }
+        #endregion
+
+        #region RESTApiConsumer
+        
+        #endregion
     }
 }
