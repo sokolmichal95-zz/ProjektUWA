@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace ProjektUWA.Models
 {
     public class Rootobject
     {
-        public List<Dataobject> Dataobject { get; set; }
+        public ObservableCollection<Dataobject> Dataobject { get; set; }
         public int Count { get; set; }
         public int Took { get; set; }
         public Links Links { get; set; }
@@ -85,7 +86,9 @@ namespace ProjektUWA.Models
         public int krs_podmiotyliczba_jedynych_akcjonariuszy { get; set; }
         public int krs_podmiotyliczba_nadzorcow { get; set; }
         public string krs_podmiotyadres_miejscowosc { get; set; }
+        //
         public string krs_podmiotynazwa { get; set; }
+        //
         public string krs_podmiotyadres_kraj { get; set; }
         public string krs_podmiotygmina_id { get; set; }
         public string krs_podmiotymiejscowosc_id { get; set; }

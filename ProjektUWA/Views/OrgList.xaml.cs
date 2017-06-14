@@ -1,6 +1,8 @@
 ﻿using ProjektUWA.Models;
 using ProjektUWA.ViewModels;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -15,8 +17,7 @@ namespace ProjektUWA
     /// </summary>
     public sealed partial class OrgList : Page
     {
-        public List<Dataobject> ListOfBusinesses;
-
+        public BusinessViewModel ViewModel { get; set; }
         public OrgList()
         {
             this.InitializeComponent();
@@ -27,9 +28,8 @@ namespace ProjektUWA
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
                 rootFrame.CanGoBack ?
                 AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
-
-            ListOfBusinesses = new BusinessViewModel().GetBusinesses();
-
+            this.ViewModel = new BusinessViewModel();
+            DataContext = ViewModel;
         }
 
         #region Navigation

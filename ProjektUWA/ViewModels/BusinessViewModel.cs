@@ -1,11 +1,8 @@
 ﻿using Newtonsoft.Json;
 using ProjektUWA.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Collections.ObjectModel;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjektUWA.ViewModels
 {
@@ -13,6 +10,20 @@ namespace ProjektUWA.ViewModels
     {
 
         #region Properties
+
+        private ObservableCollection<Dataobject> listOfBusinesses;
+        public ObservableCollection<Dataobject> ListOfBusinesses
+        {
+            get
+            {
+                return listOfBusinesses;
+            }
+            set
+            {
+                listOfBusinesses = value;
+                OnPropertyChanged("ListOfBusinesses");
+            }
+        }
 
         private Rootobject data;
         public Rootobject Data
@@ -37,7 +48,7 @@ namespace ProjektUWA.ViewModels
 
         #endregion
 
-        public List<Dataobject> GetBusinesses()
+        public ObservableCollection<Dataobject> GetBusinesses()
         {
             return Data.Dataobject;
         }
@@ -68,20 +79,28 @@ namespace ProjektUWA.ViewModels
 
         #region RESTApiConsumer
 
-        private async void GetData(string url)
+        private void GetData(string url)
         {
             HttpClient client = new HttpClient();
-
-            string response = await client.GetStringAsync(url);
-            Data = JsonConvert.DeserializeObject<Rootobject>(response);
+            HttpResponseMessage response;
+            response = client.GetAsync(url).Result;
+            response.EnsureSuccessStatusCode();
+            var content = response.Content.ReadAsStringAsync();
+            var status = content.Status;
+            Data = JsonConvert.DeserializeObject<Rootobject>(content.Result);
+            ListOfBusinesses = Data.Dataobject;
         }
 
-        private async void GetData(string url, string name)
+        private void GetData(string url, string name)
         {
             HttpClient client = new HttpClient();
-
-            string response = await client.GetStringAsync(url + name);
-            Data = JsonConvert.DeserializeObject<Rootobject>(response);
+            HttpResponseMessage response;
+            response = client.GetAsync(url + name).Result;
+            response.EnsureSuccessStatusCode();
+            var content = response.Content.ReadAsStringAsync();
+            var status = content.Status;
+            Data = JsonConvert.DeserializeObject<Rootobject>(content.Result);
+            ListOfBusinesses = Data.Dataobject;
         }
 
         #endregion
