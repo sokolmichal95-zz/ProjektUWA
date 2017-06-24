@@ -9,7 +9,22 @@
 
 
     <Grid Background="RoyalBlue">
-        <ScrollViewer>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Viewbox Grid.Column="0">
+            <Button Content="Prev"
+                    Click="Prev_Click"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Stretch"/>
+        </Viewbox>
+        <ScrollViewer Grid.Column="1" 
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollMode="Auto"
+                      HorizontalScrollMode="Auto">
             <StackPanel Orientation="Vertical"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
@@ -25,5 +40,11 @@
                 </ListView>
             </StackPanel>
         </ScrollViewer>
+        <Viewbox Grid.Column="2">
+            <Button Click="Next_Click" 
+                    Content="Next"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Stretch"/>
+        </Viewbox>
     </Grid>
 </Page>

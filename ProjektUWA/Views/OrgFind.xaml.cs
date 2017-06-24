@@ -1,4 +1,5 @@
-﻿using ProjektUWA.ViewModels;
+﻿using GalaSoft.MvvmLight.Views;
+using ProjektUWA.ViewModels;
 using System;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
@@ -15,7 +16,6 @@ namespace ProjektUWA
     public sealed partial class OrgFind : Page
     {
         public BusinessViewModel ViewModel { get; set; }
-        BusinessViewModel viewModel;
         public OrgFind()
         {
             this.InitializeComponent();
@@ -46,7 +46,17 @@ namespace ProjektUWA
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            try { viewModel = new BusinessViewModel(BusinessName.Text); } catch (Exception) { }
+            try
+            {
+                ViewModel = new BusinessViewModel(BusinessName.Text);
+                DataContext = ViewModel;
+            }
+            catch (Exception) { }
+        }
+
+        private void TextBlock_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+
         }
     }
 

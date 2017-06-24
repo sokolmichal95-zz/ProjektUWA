@@ -48,5 +48,15 @@ namespace ProjektUWA
             }
         }
         #endregion
+
+        private void Prev_Click(object sender, RoutedEventArgs e)
+        {
+            ViewModel.GetPreviousPage();
+        }
+
+        private void Next_Click(object sender, RoutedEventArgs e)
+        {
+            ViewModel.GetNextPage();
+        }
     }
 }
