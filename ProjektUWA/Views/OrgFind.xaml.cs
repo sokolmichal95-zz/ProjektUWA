@@ -14,6 +14,7 @@ namespace ProjektUWA
     /// </summary>
     public sealed partial class OrgFind : Page
     {
+        public BusinessViewModel ViewModel { get; set; }
         BusinessViewModel viewModel;
         public OrgFind()
         {

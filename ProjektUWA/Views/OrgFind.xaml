@@ -44,11 +44,12 @@
                         Orientation="Vertical"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center">
-                <ListView x:Name="BusinessesList">
+                <ListView ItemsSource="{Binding ListOfBusinesses}">
                     <ListView.ItemTemplate>
-                        <DataTemplate>
+                        <DataTemplate x:DataType="local:ViewModel">
                             <StackPanel>
-                                
+                                <TextBlock Text="{Binding data.krs_podmiotynazwa}"
+                                         Visibility="Visible"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>

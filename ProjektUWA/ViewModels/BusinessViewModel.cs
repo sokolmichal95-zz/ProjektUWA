@@ -25,11 +25,11 @@ namespace ProjektUWA.ViewModels
             }
         }
 
-        private Rootobject data;
+        private Rootobject rootData;
         public Rootobject Data
         {
-            get { return data; }
-            set { data = value; }
+            get { return rootData; }
+            set { rootData = value; }
         }
 
         #endregion

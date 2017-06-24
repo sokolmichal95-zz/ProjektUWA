@@ -10,7 +10,8 @@
     <Grid Background="RoyalBlue">
         <Pivot x:Name="AboutPage"
                HorizontalAlignment="Center"
-               VerticalAlignment="Center">
+               VerticalAlignment="Center"
+               Width="500">
             <PivotItem x:Name="AboutPageItem"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center">

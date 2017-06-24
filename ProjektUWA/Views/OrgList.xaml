@@ -6,21 +6,24 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="using:ProjektUWA.ViewModels"
     mc:Ignorable="d">
-    
+
 
     <Grid Background="RoyalBlue">
-        <StackPanel Orientation="Vertical"
+        <ScrollViewer>
+            <StackPanel Orientation="Vertical"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
-            <ListView ItemsSource="{Binding ListOfBusinesses}">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="local:ViewModel">
-                        <StackPanel>
-                            <TextBlock Text="{Binding data.krs_podmiotynazwa}"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackPanel>
+                <ListView ItemsSource="{Binding ListOfBusinesses}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="local:ViewModel">
+                            <StackPanel>
+                                <TextBlock Text="{Binding data.krs_podmiotynazwa}"
+                                         Visibility="Visible"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>
